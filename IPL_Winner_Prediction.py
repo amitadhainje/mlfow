@@ -21,6 +21,9 @@ import logging
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
+import warnings
+warnings.filterwarnings("ignore")
+
 if __name__ == "__main__":
     matches_df = pd.read_csv("IPL_Matches_2008_2022_updated.csv")
     balls_df = pd.read_csv("IPL_Ball_by_Ball_2008_2022_updated.csv")
@@ -105,6 +108,7 @@ if __name__ == "__main__":
     print (x.head())
 
     X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.30, random_state=50)
+
     experiment_name = 'IPL_MS_DS_Demo'
     mlflow.set_experiment(experiment_name)
 
@@ -113,6 +117,7 @@ if __name__ == "__main__":
     uri = mlflow.tracking.get_tracking_uri()
     print(artifact_path)
     print(uri)
+
 
 
     mlflow.end_run()
