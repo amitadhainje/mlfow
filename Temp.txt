@@ -1,0 +1,5 @@
+["SVC", "DecisionTree", "AdaBoost","RandomForest", "ExtraTrees", "GradientBoosting",
+MultipleLayerPerceptron", "KNeighboors",
+ "LogisticRegression","LinearDiscriminantAnalysis"]
+
+ ["GradientBoosting", "MultipleLayerPerceptron", "KNeighbours", "LinearDiscriminantAnalysis"]
