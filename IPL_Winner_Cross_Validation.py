@@ -117,10 +117,11 @@ if __name__ == "__main__":
 
     random_state = 2
     classifiers = []
+    # classifiers.append(["SVC",SVC(random_state=random_state)])
     classifiers.append(["DecisionTreeClassifier",DecisionTreeClassifier(random_state=random_state)])
     classifiers.append(["RandomForestClassifier",RandomForestClassifier(random_state=random_state)])
     classifiers.append(["KNeighborsClassifier",KNeighborsClassifier()])
-    # classifiers.append(LogisticRegression(random_state=random_state, solver='lbfgs', max_iter=10000))
+    # classifiers.append(["LogisticRegression",LogisticRegression(random_state=random_state, solver='lbfgs', max_iter=2000)])
     classifiers.append(["LinearDiscriminantAnalysis",LinearDiscriminantAnalysis()])
 
     mlflow.end_run()
