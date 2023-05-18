@@ -135,11 +135,12 @@ if __name__ == "__main__":
         dl_model.compile(**compile_kwargs)
         history = dl_model.fit(**fit_kwargs)
 
-        # for param_key, param_value in {**compile_kwargs, **fit_kwargs}.items():
-        #     if param_key not in ['x', 'y']:
-        #         # use log_param() to track hyper-parameters (except training dataset x,y)
-        #         mlflow.log_param(param_key, param_value)
-        #
+        for param_key, param_value in {**compile_kwargs, **fit_kwargs}.items():
+            if param_key not in ['x', 'y']:
+                # use log_param() to track hyper-parameters (except training dataset x,y)
+                if (param_key != "validation_data"):
+                    mlflow.log_param(param_key, param_value)
+
         for key, values in history.history.items():
             for i, v in enumerate(values):
                 # use log_metric() to track evaluation metrics
